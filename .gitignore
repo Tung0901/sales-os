@@ -19,3 +19,11 @@ redis_data/
 # OS
 .DS_Store
 Thumbs.db
+# Database
+backend/salesos.db
+
+# Alembic cache
+backend/migrations/__pycache__/
+
+# Logs
+*.log

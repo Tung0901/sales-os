@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 
 from app.database.database import Base, engine
-from app.models.customer import Customer
-from app.routers.customer import router as customer_router
+import app.models
 
+from app.routers.customer import router as customer_router
+from app.routers.product import router as product_router
+from app.routers.project import router as project_router
 # Tạo database và các bảng nếu chưa tồn tại
 Base.metadata.create_all(bind=engine)
 
@@ -14,7 +16,9 @@ app = FastAPI(
 )
 
 app.include_router(customer_router)
-
+app.include_router(product_router)
+app.include_router(project_router)
+app.include_router(product_router)
 
 @app.get("/")
 def root():
